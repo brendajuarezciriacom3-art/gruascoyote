@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grúas Coyote Tultitlán | Servicio de Grúas 24 Horas</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --primary-dark: #e05d00;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --whatsapp: #25d366;
+            --phone: #007bff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 70px; /* Space for sticky bar */
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .badge-24h {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid var(--primary);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            min-width: 220px;
+        }
+
+        .btn-call {
+            background-color: var(--phone);
+            color: var(--white);
+        }
+
+        .btn-call:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-wa {
+            background-color: var(--whatsapp);
+            color: var(--white);
+        }
+
+        .btn-wa:hover {
+            background-color: #1e7e34;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .coverage-item {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .coverage-item.highlight {
+            background-color: var(--dark);
+            color: var(--white);
+            border-left: 4px solid var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--dark);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--primary);
+        }
+
+        .service-info {
+            padding: 25px;
+        }
+
+        .service-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .service-info p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .blog-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .blog-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            flex: 1;
+            padding: 10px;
+            font-size: 13px;
+            min-width: auto;
+        }
+
+        .info-banner {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 5px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .info-banner span {
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: #111111;
+            color: #888888;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            border-top: 3px solid var(--primary);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        /* Sticky Bottom Bar for Mobile */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark);
+            display: flex;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+        }
+
+        .sticky-btn {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .sticky-btn-call {
+            background-color: var(--phone);
+        }
+
+        .sticky-btn-wa {
+            background-color: var(--whatsapp);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .section { padding: 40px 15px; }
+            .btn { width: 100%; min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="info-banner">
+        ⚠️ ATENCIÓN INMEDIATA: TRABAJAMOS <span>24 HORAS LOS 365 DÍAS DEL AÑO</span> (INCLUYENDO FESTIVOS)
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Grúas <span>Coyote</span></div>
+            <div class="badge-24h">24 / 7 / 365</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Servicio de Grúas en <span>Tultitlán y Zonas Cercanas</span></h1>
+            <p>¿Te quedaste varado? Brindamos asistencia vial rápida, confiable y económica. No importa la hora, el día o si es día feriado: ¡Estamos listos para ayudarte!</p>
+            
+            <div class="hero-badges">
+                <div class="hero-badge">⏱️ Llegada Rápida</div>
+                <div class="hero-badge">📆 365 Días del Año</div>
+                <div class="hero-badge">🛠️ Festivos Trabajamos</div>
+                <div class="hero-badge">📞 Atención 24 Hrs</div>
+            </div>
+
+            <div class="btn-container">
+                <a href="tel:5563555181" class="btn btn-call">📞 Llamar Ahora</a>
+                <a href="https://wa.me/525563555181?text=Hola%20Grúas%20Coyote,%20necesito%20una%20grúa%20de%20emergencia" target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COBERTURA -->
+    <section class="section" style="background-color: #ebebeb; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Nuestras Zonas de Cobertura</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-weight: 500;">Operamos estratégicamente en las principales arterias y municipios del Estado de México:</p>
+            
+            <div class="coverage-grid">
+                <div class="coverage-item highlight">📍 Tultitlán (Base)</div>
+                <div class="coverage-item">📍 Vía López Portillo</div>
+                <div class="coverage-item">📍 Circuito Exterior Mexiquense</div>
+                <div class="coverage-item">📍 Autopista Mex - Qro</div>
+                <div class="coverage-item">📍 Coacalco</div>
+                <div class="coverage-item">📍 Cuautitlán Izcalli</div>
+                <div class="coverage-item">📍 Tultepec</div>
+                <div class="coverage-item">📍 Tlalnepantla</div>
+                <div class="coverage-item">📍 Atizapán</div>
+                <div class="coverage-item">📍 Tepotzotlán</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section">
+        <h2 class="section-title">Servicios de Asistencia Vial</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-info">
+                    <h3>Grúas de Plataforma</h3>
+                    <p>Ideal para vehículos nuevos, deportivos, siniestrados o con fallas mecánicas graves. Traslados 100% seguros sin rodar tu unidad.</p>
+                    <div class="blog-actions">
+                        <a href="tel:5563555181" class="btn btn-sm btn-call">Llamar</a>
+                        <a href="https://wa.me/525563555181?text=Hola%20Grúas%20Coyote,%20cotizo%20grúa%20de%20plataforma" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-info">
+                    <h3>Grúas de Arrastre / Wheel Lift</h3>
+                    <p>Solución rápida y económica para retirar vehículos mal estacionados, atorados o traslados cortos urbanos en calles estrechas.</p>
+                    <div class="blog-actions">
+                        <a href="tel:5563555181" class="btn btn-sm btn-call">Llamar</a>
+                        <a href="https://wa.me/525563555181?text=Hola%20Grúas%20Coyote,%20cotizo%20grúa%20de%20arrastre" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-info">
+                    <h3>Asistencia en Carretera</h3>
+                    <p>Paso de corriente, cambio de llantas de refacción y suministro de gasolina de emergencia directamente en tu ubicación.</p>
+                    <div class="blog-actions">
+                        <a href="tel:5563555181" class="btn btn-sm btn-call">Llamar</a>
+                        <a href="https://wa.me/525563555181?text=Hola%20Grúas%20Coyote,%20necesito%20asistencia%20vial" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="section" style="background-color: #f9f9f9; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <h2 class="section-title">Blog de Auxilio Vial y Consejos</h2>
+            <div class="blog-container">
+                
+                <div class="blog-post">
+                    <div class="blog-content">
+                        <div class="blog-date">Guía de Emergencia</div>
+                        <h3>¿Qué hacer si te quedas varado en la Vía López Portillo o la Autopista Mex-Qro?</h3>
+                        <p>Estas arterias son de alta velocidad y flujo pesado. Si tu auto falla, préndete las intermitentes, colócate en el acotamiento de forma segura y no te arriesgues. Atendemos reportes las 24 horas en toda la zona industrial y comercial.</p>
+                        <div class="blog-actions">
+                            <a href="tel:5563555181" class="btn btn-sm btn-call">Pedir Grúa</a>
+                            <a href="https://wa.me/525563555181?text=Me%20quedé%20en%20la%20López%20Portillo/Mex-Qro,%20requiero%20apoyo" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <div class="blog-content">
+                        <div class="blog-date">Servicio Local</div>
+                        <h3>Grúas en Cuautitlán Izcalli, Coacalco y Tultepec: Disponibilidad en días festivos</h3>
+                        <p>Muchos talleres y grúas descansan en Navidad, Año Nuevo o puentes oficiales, pero las fallas mecánicas no avisan. En Grúas Coyote cubrimos todo el Circuito Exterior Mexiquense y municipios vecinos los 365 días del año sin excepción.</p>
+                        <div class="blog-actions">
+                            <a href="tel:5563555181" class="btn btn-sm btn-call">Pedir Grúa</a>
+                            <a href="https://wa.me/525563555181?text=Requiero%20grúa%20en%20Izcalli/Coacalco/Tultepec" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <div class="blog-content">
+                        <div class="blog-date">Cobertura Especial</div>
+                        <h3>Asistencia vial rápida en Tlalnepantla, Atizapán y Tepotzotlán</h3>
+                        <p>Nuestras unidades están distribuidas estratégicamente cerca de las entradas de Tepotzotlán y zonas de Tlalnepantla para reducir los tiempos de espera al mínimo. Llámanos para traslados locales o foráneos con tarifas justas.</p>
+                        <div class="blog-actions">
+                            <a href="tel:5563555181" class="btn btn-sm btn-call">Pedir Grúa</a>
+                            <a href="https://wa.me/525563555181?text=Necesito%20grúa%20cerca%20de%20Tlalnepantla/Atizapán/Tepotzotlán" target="_blank" class="btn btn-sm btn-wa">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Grúas Coyote Tultitlán</strong> - Servicio Profesional de Traslado de Vehículos</p>
+        <p>📍 Cobertura Completa en Edoméx: Tultitlán, Coacalco, Izcalli, Tultepec, Tlalnepantla, Atizapán, Tepotzotlán, Vía López Portillo, Autopista Mex-Qro, Circuito Exterior Mexiquense.</p>
+        <p>© 2026 Todos los derechos reservados. Trabajamos las 24 Horas, los 365 días del año (incluyendo días festivos).</p>
+    </footer>
+
+    <!-- STICKY FOOTER BAR FOR MOBILE -->
+    <div class="sticky-bar">
+        <a href="tel:5563555181" class="sticky-btn sticky-btn-call">📞 LLAMAR</a>
+        <a href="https://wa.me/525563555181?text=Hola%20Grúas%20Coyote,%20necesito%20asistencia%20vial%20urgente" target="_blank" class="sticky-btn sticky-btn-wa">💬 WHATSAPP</a>
+    </div>
+
+</body>
+</html>
